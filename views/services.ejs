@@ -1,0 +1,34 @@
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">
+      Services
+    </h2>
+    <hr class="star-dark mb-5" />
+    <div class="roww">
+      <% if (services.length > 0){
+            for (let service of services){
+        %>
+      
+          <div class=" service">
+            <img
+            class="img-fluid "
+            src="/images/<%=service.icon %>"
+            alt="Movie Finder"
+          />
+            <h4><%= service.category %> </h4>
+
+                <div
+                  class="serviceItem"
+                >
+                  <ul>
+                   <% for (let offer of service.offerings){%> 
+                      <li><%= offer %></li>
+                    <%}%>  
+                  </ul>
+                </div>
+          </div>
+      <%}
+    }%>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">
+      Projects
+    </h2>
+    <hr class="star-dark mb-5" />
+    <div class="row">
+      <% if (projects.length > 0){
+        for (let project of projects){
+      %>
+      <div class="col-mn-6 col-lg-4">
+        <a class="portfolio-item d-block mx-auto" href="">
+          <div
+            class="portfolio-item-caption d-flex position-absolute h-100 w-100"
+          >
+            <div
+              class="portfolio-item-caption-content my-auto w-100 text-center text-white"
+            >
+              <p>
+                <%= project.description%>
+              </p>
+              <p>
+                Role - <%= project.role%>
+              </p>
+            </div>
+          </div>
+          <img
+            class="img-fluid"
+            src="/images/<%= project.icon%>"
+            alt="Movie Finder"
+          />
+        </a>
+      </div>
+      <%}
+    }%>  
+    </div>
+  </div>
+</section>
