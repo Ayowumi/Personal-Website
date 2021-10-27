@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 router.get('/', (req, res, next) => {
 
   const data =  {
@@ -74,6 +74,7 @@ router.get('/services',(req, res, next) => {
 router.get('/contact',(req, res, next) => {
   res.render('contact', { layout: './layouts/template2' });
 });
+
 
 router.post('/thanks',(req, res, next) => {
   res.redirect('/');

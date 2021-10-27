@@ -1,0 +1,63 @@
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">
+      Business Contact
+    </h2>
+    <hr class="star-dark mb-5" />
+      <% if (locals.messages &&  locals.messages.success) { %>
+        <div class="alert alert-success" role="alert"><%- messages.success %></div>
+        <% } %>
+
+        <% if (locals.messages && locals.messages.error) { %>
+          <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+          <% } %>
+        <div class="card"> 
+            <div class="card-header">
+                <ul class="nav nav-pills w-100">
+                    <li class="nav-pill active">
+                        <a class="nav-link">Contacts</a>
+                    </li>
+                    <li class="nav-pill ml-auto">
+                        <a class="nav-link active" href="/contact_list/add">Add Contact</a>
+                    </li>
+                </ul>
+            </div>
+        <div class="card-body">
+            
+            <% if(data.length) { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th width="200px">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for(var i = 0; i< data.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%= (i + 1)%></th>
+                        <td><%= data[i].name%></td>
+                        <td><%= data[i].email%></td>
+                        <td><%= data[i].phone%></td>
+                        <td>
+                            <a class="btn btn-success edit" href="../contact_list/edit/<%=data[i]._id%>">Edit</a>                       
+                            <a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="../contact_list/delete/<%=data[i]._id%>">Delete</a>                       
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+            <% } %>
+            
+            <!-- if result is empty -->
+            <% if(!data.length) { %>
+                <p class="text-center">No Contacts found!</p>
+            <% } %>
+    
+            </div>
+        </div>
+  </div>
+</section>
